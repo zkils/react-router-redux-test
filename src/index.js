@@ -21,7 +21,6 @@ const onChangeBar = (nextState, replaceState) => {  //onleave,onenter랑 같이 
     console.log("onChange Bar");
     console.log(nextState);
     console.log(replaceState);
-
 }
 
 ReactDOM.render(

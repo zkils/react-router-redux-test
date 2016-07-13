@@ -2,11 +2,15 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        app:['./src/index.js'],
+        vendor:['react','react-dom','redux','react-router','react-router-redux'],
+    },
 
     output: {
         path: __dirname + '/build',
-        filename: 'bundle.js'
+        filename: '[name].chunk.js',
+        chunkFilename:"[name]_[chunkhash:20].js",
     },
 
     devServer: {
@@ -53,5 +57,6 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
+        new webpack.optimize.CommonsChunkPlugin('vendor','./lib/vendor.js',Infinity),
     ]
 };
