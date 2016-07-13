@@ -1,0 +1,22 @@
+:local(.messageListWrapper){
+    width:700px;
+    height:300px;
+    overflow:auto;
+}
+
+
+.messageListWrapper::-webkit-scrollbar {
+    width: 12px;
+}
+.messageListWrapper::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.messageListWrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(204, 204, 204, 0.43) ;
+}
+.messageListWrapper::-webkit-scrollbar-button {
+    display:none;
+}
+.messageListWrapper::-webkit-scrollbar-corner {
+    display: none;
+}

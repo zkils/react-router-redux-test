@@ -1,0 +1,12 @@
+:local(.appsButton){
+    float:left;
+}
+:local(.settingButton){
+    float: left;
+    left: 690px;
+    position: absolute;
+}
+:local(.footerBody){
+    position: fixed;
+    top: 415px;
+}

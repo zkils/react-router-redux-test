@@ -1,0 +1,13 @@
+:local(.floatElement){
+    float:left;
+}
+:local(.title){
+    composes:floatElement;
+    width: 580px;
+    height: 65px;
+    text-indent: 20px;
+    font-size: 30px;
+
+    color: #fff;
+    line-height: 60px;
+}
