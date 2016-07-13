@@ -12,7 +12,8 @@ module.exports = {
     devServer: {
         inline: true,
         port: 7070,
-        contentBase: __dirname + '/build'
+        contentBase: __dirname + '/build',
+        historyApiFallback: true,
     },
 
 
@@ -41,12 +42,16 @@ module.exports = {
             'react-dom': 'react-lite'
         }
     },
-
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
                 warnings: false,
             },
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
     ]
 };

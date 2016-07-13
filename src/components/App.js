@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, browserHistory } from 'react-router'
+import { Link, hashHistory, IndexLink } from 'react-router'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -12,35 +12,47 @@ class App extends React.Component{
     }
     handleBackButton(){
         console.log("Back");
-        browserHistory.goBack();
+        this.props.history.goBack();
     }
     handleHomeButton(){
         console.log("Home");
-        browserHistory.push('/');
+        this.props.history.push("/");
     }
     handleSettingButton(){
         console.log("Setting");
+
+
     }
     render(){
+        let linkStyle = {
+            position:'absolute',
+            top: '80px',
+            left: '200px',
+        }
+        let btnsStyle = {
+            position:'absolute',
+            top: '80px',
+            left: '400px',
+        }
         return (
             <div>
                 <Header onClickBack={this.handleBackButton} onClickHome={this.handleHomeButton} />
                 <br />
-                <div>
+                <div style={linkStyle}>
                     Links:
                     {'  /  '}
-                    <Link to="/">Home</Link>
+                    <IndexLink to="/">Home</IndexLink>
                     {'  /  '}
                     <Link to="/foo">Foo</Link>
                     {'  /  '}
                     <Link to="/bar">Bar</Link>
                 </div>
-                <div>
-                    <button onClick={() => browserHistory.push('/foo')}>Go to /foo....</button>
+                <div style={btnsStyle}>
+                    <button onClick={() => this.props.history.push('foo')}>Go to /foo</button>
                     <br />
-                    <button onClick={() => browserHistory.push('/bar')}>Go to /bar....</button>
-
+                    <button onClick={() => this.props.history.push('bar')}>Go to /bar</button>
                 </div>
+                <br />
                 <div style={{ marginTop: '1.5em' }}>{this.props.children}</div>
                 <Footer settingBtnStatus={true} onClickSetting={this.handleSettingButton} />
             </div>
