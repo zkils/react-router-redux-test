@@ -10,12 +10,11 @@ class Home extends React.Component{
            <div>
                <h1>Page 1</h1>
                <div>
-                   Bar checked state is....
-                   {(this.props.checked) ? "Checked" : "non checked"}
+                   Bar checked state is.... {(this.props.checked) ? "Checked" : "non checked "}
+
 
                </div>
            </div>
-
         )
     }
 }

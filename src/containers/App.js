@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link, hashHistory, IndexLink } from 'react-router'
-import Header from './Header'
-import Footer from './Footer'
+import { Link,  IndexLink } from 'react-router'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 class App extends React.Component{
     constructor(props){
@@ -20,8 +20,6 @@ class App extends React.Component{
     }
     handleSettingButton(){
         console.log("Setting");
-
-
     }
     render(){
         let linkStyle = {
@@ -61,28 +59,3 @@ class App extends React.Component{
 }
 
 export default  App;
-
-//
-// export default function App({ children }) {
-//     return (
-//         <div>
-//             <Header/>
-//             <br />
-//             <div>
-//                 Links:
-//                 <br/>
-//                 <Link to="/">Home</Link>
-//                 <br/>
-//                 <Link to="/foo">Foo</Link>
-//                 <br/>
-//                 <Link to="/bar">Bar</Link>
-//
-//             </div>
-//             <div>
-//                 <button onClick={() => browserHistory.push('/foo')}>Go to /foo</button>
-//             </div>
-//             <div style={{ marginTop: '1.5em' }}>{children}</div>
-//             <Footer/>
-//         </div>
-//     )
-// }

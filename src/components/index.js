@@ -1,4 +1,4 @@
-import _App from './App';
+import _App from '../containers/App';
 export { _App as App };
 import _Home from './Home';
 export { _Home as Home };

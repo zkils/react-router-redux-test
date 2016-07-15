@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCheckOption } from '../actions';
+import { setCheckOption } from '../actions/sampleActions';
 
 class Bar extends React.Component{
     constructor(props){
@@ -18,7 +18,7 @@ class Bar extends React.Component{
     render(){
         return(
             <div>
-                <h1>Page 3</h1>
+                <h1>Page-3</h1>
                 <input type="checkbox" onChange={this.onUpdateOption} style={{zoom:5}}/>
             </div>
         )

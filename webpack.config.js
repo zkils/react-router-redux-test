@@ -1,16 +1,14 @@
 var path = require('path');
 var webpack = require('webpack');
-
 module.exports = {
     entry: {
-        app:['./src/index.js'],
-        vendor:['react','react-dom','redux','react-router','react-router-redux'],
+        app:['babel-polyfill','./src/index.js'],
     },
 
     output: {
         path: __dirname + '/build',
-        filename: '[name].chunk.js',
-        chunkFilename:"[name]_[chunkhash:20].js",
+        filename: '[name].js',
+        chunkFilename:"[id].chunk.js",
     },
 
     devServer: {
@@ -18,8 +16,8 @@ module.exports = {
         port: 7070,
         contentBase: __dirname + '/build',
         historyApiFallback: true,
+        hot:true,
     },
-
 
     module:
     {
@@ -40,13 +38,11 @@ module.exports = {
         ]
     },
 
-    resolve: {
-        alias: {
-            'react': 'react-lite',
-            'react-dom': 'react-lite'
-        }
-    },
+    // devtool: "inline-source-map",  // for Debug - remove when publishing
     plugins: [
+        /*
+         * for production plugins start
+         */
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
                 warnings: false,
@@ -57,6 +53,8 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendor','./lib/vendor.js',Infinity),
+        /*
+         * for production plugins end
+         */
     ]
 };

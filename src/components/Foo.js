@@ -7,11 +7,13 @@ class Foo extends React.Component{
           <div>
               <h1>Page 2</h1>
               <ul>
-                  {this.props.sampleList.map((obj, i)=> {
-                      return (
-                          <li key={i}>{obj.name} // {obj.value}</li>
-                      )
-                  })}
+                  {
+                      this.props.sampleList.map((obj, i)=> {
+                          return (
+                              <li key={i}>{obj.name} // {obj.value}</li>
+                          )
+                      })
+                  }
               </ul>
           </div>
 
