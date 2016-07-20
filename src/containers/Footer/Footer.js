@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Button from './Button';
-import styles from './css/Footer.css';
+import Button from '../../components/Button/Button';
+import styles from './Footer.css';
 
 
 class Footer extends React.Component{

@@ -11,6 +11,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
+    "immutable": "^3.8.1",
     "react": "^0.15.0",
     "react-addons-shallow-compare": "^15.2.1",
     "react-addons-update": "^15.1.0",

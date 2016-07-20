@@ -8,7 +8,7 @@ import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bu
 import {indigo500} from 'material-ui/styles/colors';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import styles from './css/MessageList.css';
+import styles from './MessageList.css';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import {connect} from 'react-redux';

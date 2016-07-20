@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import styles from './css/FormInput.css';
+import styles from './FormInput.css';
 import { connect } from 'react-redux';
 import { updateMessageState, addMessage } from '../actions'
 

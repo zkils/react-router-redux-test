@@ -15,8 +15,8 @@ class SvgIcon extends React.Component{
 
     }
     _setStyle(){
-        let onColor = this.props.color ? this.props.color : baseTheme.default.palette.iconColor;
-        let offColor = this.props.hoverColor ? this.props.hoverColor : baseTheme.default.palette.iconHoverColor;
+        let onColor = this.props.color ? this.props.color : '#00bcd4';
+        let offColor = this.props.hoverColor ? this.props.hoverColor : '#e0e0e0';
         let style={
             display: 'inline-block',
             fill: this.state.hovered ? onColor : offColor,

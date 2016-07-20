@@ -1,16 +1,17 @@
-/**
- * Created by krinjadl on 2016-07-14.
- */
-//test code
+
+
+//TODO have to remove
 const a = () => {
     let tmp = [];
-    for( let i= 0 ; i <1000 ; i++ ){
+    for( let i= 0 ; i <10 ; i++ ){
         tmp.push({name:"K"+i, value:i});
     }
     return tmp;
 }
 
-/*
+
+/**
+ * init state for reducer
  * Add initial state for each reducer
  */
 export default {

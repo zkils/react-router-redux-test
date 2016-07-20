@@ -1,31 +1,40 @@
-/**
- * Created by krinjadl on 2016-06-14.
- */
-import React from 'react';
-import Button from './Button';
-import TextBox from './TextBox';
-import styles from './css/Header.css';
-import SvgIcon from './SvgIcon';
 
+import React from 'react';
+import Button from '../../components/Button/Button';
+import TextBox from '../../components/TextBox/TextBox';
+import styles from './Header.css';
+import SvgIcon from '../../components/Icon/SvgIcon';
+/**
+ * Header Component
+ * @extends React.Component *
+ * @example
+ * <Header />
+ * or
+ * <Header>
+ *     <SvgIcon />
+ *     <Button />
+ * </Header>
+ */
 class Header extends React.Component{
     constructor(props){
         super(props);
     }
-    // shouldComponentUpdate(nextProps, nextState){
-    //     return (JSON.stringify(nextProps) != JSON.stringify(this.props));
-    // }
+
     _onClickBack(){
         this.props.onClickBack();
-
     }
     _onClickHome(){
         this.props.onClickHome();
         //AppManager.home();
     }
+
+    /**
+     * Render [Button]{@link Button} and Icon is included
+     * @see Button
+     * @returns {XML}
+     */
     render(){
         const buttonData=[
-            // {label:"Back", onClick:this._onClickBack.bind(this)},
-            // {label:"Home", onClick:this._onClickHome.bind(this)}
             { onClick:this._onClickBack.bind(this),label:"Back"},
             {onClick:this._onClickHome.bind(this),label:"Home"},
         ];

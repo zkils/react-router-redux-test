@@ -38,7 +38,7 @@ module.exports = {
         ]
     },
 
-    // devtool: "inline-source-map",  // for Debug - remove when publishing
+    devtool: "inline-source-map",  // for Debug - remove when publishing
     plugins: [
         /*
          * for production plugins start
@@ -48,11 +48,11 @@ module.exports = {
                 warnings: false,
             },
         }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         'NODE_ENV': JSON.stringify('production')
+        //     }
+        // }),
         /*
          * for production plugins end
          */

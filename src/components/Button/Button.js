@@ -1,17 +1,32 @@
-/**
- * Created by krinjadl on 2016-06-14.
- */
 import React from 'react';
-import styles from './css/Button.css';
+import styles from './Button.css';
 import classNames from 'classnames/bind';
 import shallowCompare from 'react-addons-shallow-compare';
 
 let cx = classNames.bind(styles);
 
+/**
+ * Button Component
+ * @extends React.Component
+ * @example
+ * <Button label={"label"} enable={true} onClick={func} />
+ *
+ * <Button>
+ *     <Icon>
+ *     <span>
+ * </Button>
+ */
 class Button extends React.Component{
-
+    /**
+     * 생성자
+     * @param {Object} props
+     */
     constructor(props){
         super(props);
+        /**
+         * @type {boolean}
+         * @property {boolean} pressed button press status
+         */
         this.state={
             pressed:false,
         }
@@ -20,29 +35,52 @@ class Button extends React.Component{
         this.handleRelease = this.handleRelease.bind(this);
         this.renderChild = this.renderChild.bind(this);
     }
-    componentDidMount(){
 
-    }
+    /**
+     * Check prop and state for performance
+     * @param nextProps
+     * @param nextState
+     * @returns {bool}
+     */
     shouldComponentUpdate(nextProps, nextState){
         return shallowCompare(this, nextProps, nextState);
     }
+
+    /**
+     * Handle click call cb
+     * @example
+     * <Button onClick={handleBackButton} />
+     */
     handleClick(){
         this.props.onClick();
     }
+    /**
+     * Handling button Down
+     * change state on button pressed
+     */
     handleDown(){
         this.setState({
             pressed:true
         });
     }
+    /**
+     * Handling button release
+     * change state on button release
+     */
     handleRelease(){
         this.setState({
             pressed:false
         });
 
     }
+    /**
+     * Render Children
+     * if child is function - staless component return react element else just return
+     * @param children
+     * @returns {React.Component}
+     */
     renderChild(children){
-        return React.Children.map(children, child =>{
-
+        return React.Children.map(children, child =>{ //Todo Icon, textbox 외에 다른 React Component는 어떻게 처리?
             if(typeof(child.type) == 'function'){
                 return React.cloneElement(child,{
                     tbText:"",
@@ -55,6 +93,13 @@ class Button extends React.Component{
             }
         })
     }
+    /**
+     * Render nodes
+     * @returns {XML}
+     * @example
+     * let result = MyClass.bar();
+     * console.log(result);
+     */
     render(){
         let btnClass = this.props.className + " "+cx({
                 obButton:true,
@@ -88,6 +133,19 @@ class Button extends React.Component{
             )
         }
     }
+    /**
+     * propTypes form parent Component
+     * @property {string} label button label
+     * @property {bool} enable button status
+     * @property {func} onClick onclick event cb
+     */
+    static get propTypes() {
+        return {
+            label : React.PropTypes.string,
+            enable : React.PropTypes.bool,
+            onClick : React.PropTypes.func,
+        };
+    }
 };
 
 Button.defaultProps = {
@@ -96,5 +154,6 @@ Button.defaultProps = {
     show:true,
     onClick:function(){}
 }
+
 
 export default Button
