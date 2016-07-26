@@ -5,26 +5,20 @@
 
 
 /**
- * SELECT_REDDIT action
+ * START_FETCH_PLAYERS  action
  * @type {string}
  * @memberof Action
  */
-export const SELECT_REDDIT = 'SELECT_REDDIT';
+export const START_FETCH_PLAYERS = 'START_FETCH_PLAYERS ';
 /**
- * INVALIDATE_REDDIT action
+ * SUCCESS_FETCH_PLAYERS action
  * @type {string}
  * @memberof Action
  */
-export const INVALIDATE_REDDIT  = 'INVALIDATE_REDDIT ';
+export const SUCCESS_FETCH_PLAYERS   = 'SUCCESS_FETCH_PLAYERS  ';
 /**
- * REQUEST_POSTS action
+ * ERROR_FETCH_PLAYERS action
  * @type {string}
  * @memberof Action
  */
-export const REQUEST_POSTS  = 'REQUEST_POSTS';
-/**
- * RECEIVE_POSTS action
- * @type {string}
- * @memberof Action
- */
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
+export const ERROR_FETCH_PLAYERS  = 'ERROR_FETCH_PLAYERS';

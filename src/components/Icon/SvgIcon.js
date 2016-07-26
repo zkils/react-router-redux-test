@@ -1,6 +1,5 @@
 
 import React from 'react';
-import baseTheme from './theme/baseTheme';
 
 class SvgIcon extends React.Component{
     constructor(props){
@@ -12,8 +11,8 @@ class SvgIcon extends React.Component{
         this._handleMouseLeave = this._handleMouseLeave.bind(this);
         this._handleMouseEnter = this._handleMouseEnter.bind(this);
         this._setStyle = this._setStyle.bind(this);
-
     }
+
     _setStyle(){
         let onColor = this.props.color ? this.props.color : '#00bcd4';
         let offColor = this.props.hoverColor ? this.props.hoverColor : '#e0e0e0';

@@ -1,9 +1,9 @@
-# REACT-REDUX
+# OBIGO-WebApp Kit
 
 
 ## How to use
-- ``git clone https://github.com/velopert/react-skeleton.git`` - Clone the project
+- ``git clone https://github.com/OBIGOGIT/obigo-sdk-js-framework`` - Clone the project
 - ``npm install`` - Install the dependency
 - ``npm start``  -Run the development server
 
-*Server port is set to **77070***
+*Server port is set to **7070***

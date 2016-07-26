@@ -2,15 +2,15 @@
  * Combine all reducer with routerReducer
  */
 import { combineReducers } from 'redux';
-import {routerReducer} from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 import sampleReducer from './sampleReducer';
-import {selectedReddit,postsByReddit} from './asyncReducer';
+import { getPlayers,inProgress } from './asyncReducer';
 
 
 const rootReducer = combineReducers({
     sampleReducer,
-    selectedReddit,
-    postsByReddit,
+    getPlayers,
+    inProgress,
     // add your reducer
     routing: routerReducer
 });

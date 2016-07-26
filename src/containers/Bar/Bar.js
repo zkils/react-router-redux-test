@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setCheckOption } from '../../actions/sampleActions';
 
+
 /**
  * Bar Component
- * @extends React.Compnent
+ * @extends React.Comppnent
  * @example
  * <Bar >
  */
@@ -49,7 +50,7 @@ class Bar extends React.Component{
 
 let mapDispatchToProps = (dispatch) => {
     return{
-        onUpdateOption : (value) => dispatch(setCheckOption(value))
+        onUpdateOption : (value) => dispatch(setCheckOption(value)),
     };
 }
 

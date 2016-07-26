@@ -19,6 +19,9 @@ export default {
         checked:false,
         //sampleList: [{name:"1",value:100},{name:"2",value:100},{name:"3",value:100},{name:"4",value:100},{name:"5",value:100},{name:"6",value:100},{name:"7",value:100},{name:"8",value:100}, {name:"9",value:100},{name:"10",value:100}],
         sampleList:a()
+    },
+    asyncSample:{
+        players:[]
     }
 
 }

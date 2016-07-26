@@ -2,52 +2,29 @@
  * Created by krinjadl on 2016-07-19.
  */
 import initialState from './initialState';
-import { SELECT_REDDIT,INVALIDATE_REDDIT,REQUEST_POSTS,RECEIVE_POSTS } from '../actions/actionTypes/asyncActionTypes';
+import { START_FETCH_PLAYERS, SUCCESS_FETCH_PLAYERS, ERROR_FETCH_PLAYERS} from '../actions/actionTypes/asyncActionTypes';
 
-export default function selectedReddit(state = 'reactjs', action) {
-    switch (action.type) {
-        case SELECT_REDDIT:
-            return action.reddit;
+
+export function getPlayers(state = initialState.asyncSample, action){
+    switch (action.type){
+        case SUCCESS_FETCH_PLAYERS:
+            return action.players;
+        case ERROR_FETCH_PLAYERS:
+            return [];
         default:
             return state;
     }
 }
 
-function posts(state = {
-    isFetching: false,
-    didInvalidate: false,
-    items: []
-    }, action) {
-    switch (action.type) {
-        case INVALIDATE_REDDIT:
-            return Object.assign({}, state, {
-                didInvalidate: true
-            });
-        case REQUEST_POSTS:
-            return Object.assign({}, state, {
-                isFetching: true,
-                didInvalidate: false
-            });
-        case RECEIVE_POSTS:
-            return Object.assign({}, state, {
-                isFetching: false,
-                didInvalidate: false,
-                items: action.posts,
-                lastUpdated: action.receivedAt
-            });
-        default:
-            return state;
-    }
-}
-
-export default function postsByReddit(state = {}, action) {
-    switch (action.type) {
-        case INVALIDATE_REDDIT:
-        case RECEIVE_POSTS:
-        case REQUEST_POSTS:
-            return Object.assign({}, state, {
-                [action.reddit]: posts(state[action.reddit], action)
-            });
+export function inProgress(state,action){
+    state = state || false;
+    switch (action.type){
+        case START_FETCH_PLAYERS:
+            return true;
+        case SUCCESS_FETCH_PLAYERS:
+            return false;
+        case ERROR_FETCH_PLAYERS:
+            return false;
         default:
             return state;
     }

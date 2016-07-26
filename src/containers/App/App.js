@@ -17,7 +17,6 @@ import Footer from '../Footer/Footer'
  *     <Footer />
  * </App>
  */
-
 class App extends React.Component{
     /**
      * nothing comments..
@@ -34,7 +33,6 @@ class App extends React.Component{
      * back to previous page
      */
     handleBackButton(){
-        console.log("Back");
         this.props.history.goBack();
     }
 

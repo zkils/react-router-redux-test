@@ -2,49 +2,51 @@
 import * as types from './actionTypes/asyncActionTypes';
 
 /**
- * Action creator for getting reddit
- * @param reddit
- * @returns {{type, reddit: *}}
+ * Action creator for startFetchPlayers
  */
-export function selectReddit(reddit){
+export function startFetchPlayers(){
     return{
-        type: types.SELECT_REDDIT,
-        reddit
+        type: types.START_FETCH_PLAYERS
     };
 }
 /**
- * refresh
- * @param reddit
- * @returns {{type, reddit: *}}
+ * Action for successFetchPlayers
+ * @param result
+ * @returns {{type, result: *}}
  */
-export function invalidateReddit(reddit){
+export function successFetchPlayers(result){
     return{
-        type: types.INVALIDATE_REDDIT,
-        reddit
+        type: types.SUCCESS_FETCH_PLAYERS,
+        players : result
     };
 }
 /**
- * requestPosts
- * @param reddit
- * @returns {{type: string, reddit: *}}
+ * Action for errorFetchPlayers
  */
-export function requestPosts(reddit){
+export function errorFetchPlayers(){
     return{
-        type: types.REQUEST_POSTS,
-        reddit
+        type: types.ERROR_FETCH_PLAYERS
     }
 }
 /**
- * receivePosts
- * @param reddit
- * @param json
- * @returns {{type: string, reddit: *, posts: *, receiveAt: *}}
+ * fetchPlayersAsync action
+ * Async action for get Players list
+ * @returns {Function}
  */
-export function receivePosts(reddit,json) {
-    return{
-        type: types.RECEIVE_POSTS,
-        reddit,
-        posts: json.data.children.map(child => child.data),
-        receiveAt: Data.now()
-    };
+export function fetchPlayersAsync(){
+    return dispatch => {
+        dispatch(startFetchPlayers());
+        return fetch('/conf.json')
+        //return fetch('/api/players', {
+        //     method:"POST",
+        //     headers:{ "Content-Type": "application/x-www-form-urlencoded" } , body: "firstName=Nikhil&favColor=blue&password=easytoguess"
+        // })
+            .then(res => {
+               if(res.ok){
+                   res.json().then(data => dispatch(successFetchPlayers(data)));
+               } else if(res.status == 401){
+                   dispatch(errorFetchPlayers());
+               }
+            });
+    }
 }
