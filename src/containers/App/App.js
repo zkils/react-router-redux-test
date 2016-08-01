@@ -2,6 +2,7 @@ import React from 'react'
 import { Link,  IndexLink } from 'react-router'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import styles from './App.css';
 
 /**
  * App container
@@ -66,11 +67,9 @@ class App extends React.Component{
             top: '80px',
             left: '400px',
         }
-
         return (
-            <div>
+            <div className={styles.app}>
                 <Header onClickBack={this.handleBackButton} onClickHome={this.handleHomeButton} />
-                <br />
                 <div style={linkStyle}>
                     Links:
                     {'  /  '}

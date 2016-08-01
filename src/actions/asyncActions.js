@@ -34,13 +34,10 @@ export function errorFetchPlayers(){
  * @returns {Function}
  */
 export function fetchPlayersAsync(){
+    let url = '/conf.json';
     return dispatch => {
         dispatch(startFetchPlayers());
-        return fetch('/conf.json')
-        //return fetch('/api/players', {
-        //     method:"POST",
-        //     headers:{ "Content-Type": "application/x-www-form-urlencoded" } , body: "firstName=Nikhil&favColor=blue&password=easytoguess"
-        // })
+        return fetch(url)
             .then(res => {
                if(res.ok){
                    res.json().then(data => dispatch(successFetchPlayers(data)));

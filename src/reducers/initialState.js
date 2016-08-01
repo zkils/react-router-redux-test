@@ -22,6 +22,12 @@ export default {
     },
     asyncSample:{
         players:[]
+    },
+    intl:{
+        locale:'ko',
+        messages:{
+            'app.greeting':'안녕',
+        },
     }
 
 }

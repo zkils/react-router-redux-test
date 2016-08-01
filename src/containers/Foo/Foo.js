@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchPlayersAsync  } from '../../actions/asyncActions';
+import { FormattedMessage } from 'react-intl';
 
 /**
  * Foo Component
@@ -27,7 +28,9 @@ class Foo extends React.Component{
         }
         return (
             <div>
-                <h1>Page 2</h1>
+                <h1>Page 2 -
+                    <FormattedMessage id="system.alert" defaultMessage="Alert" />
+                </h1>
                 <button onClick={this.onClickButton}>get player</button>
 
                 <ul style={ulStyle}>

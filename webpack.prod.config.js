@@ -1,3 +1,6 @@
+/**
+ * Created by krinjadl on 2016-08-01.
+ */
 var path = require('path');
 var webpack = require('webpack');
 var WebpackMd5Hash = require('webpack-md5-hash');
@@ -5,9 +8,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var environment = require('./src/config/config.js');
 
 var GLOBAL_VARIABLES = {
-    'process.env.NODE_ENV':JSON.stringify((environment.devMode) ? 'development' : 'production' ),
+    'process.env.NODE_ENV':JSON.stringify('production'),
     'process.env.WIDGET':JSON.stringify((environment.appMode) ? 'app' : 'widget'),
-    __DEV__: environment.devMode
+    __DEV__: false
 }
 
 module.exports = {
@@ -19,14 +22,6 @@ module.exports = {
         path: __dirname + '/build',
         filename: '[name].js',
         chunkFilename:"[id].chunk.js",
-    },
-
-    devServer: {
-        inline: true,
-        port: 7070,
-        contentBase: __dirname + '/build',
-        historyApiFallback: true,
-        hot:true,
     },
 
     module:
@@ -51,9 +46,12 @@ module.exports = {
         ]
     },
 
-    devtool: "inline-source-map",  // for Debug - remove when publishing
     plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin(GLOBAL_VARIABLES),
+        //new webpack.optimize.CommonsChunkPlugin('common.js'),
+        //new webpack.optimize.AggressiveMergingPlugin(),
         new HtmlWebpackPlugin({
             template: 'src/index.ejs',
             minify: {
@@ -70,5 +68,6 @@ module.exports = {
             },
             inject: true,
         }),
+        new webpack.optimize.DedupePlugin(),
     ]
 };
