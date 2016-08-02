@@ -80,7 +80,7 @@ class Button extends React.Component{
      * @returns {React.Component}
      */
     renderChild(children){
-        return React.Children.map(children, child =>{ //Todo Icon, textbox 외에 다른 React Component는 어떻게 처리?
+        return React.Children.map(children, child =>{ //It can check by child.type.name
             if(typeof(child.type) == 'function'){
                 return React.cloneElement(child,{
                     tbText:"",

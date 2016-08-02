@@ -1,0 +1,6 @@
+
+.obButton {
+    composes: btnEnableColor from "../../resources/css/colors.css";
+    width:100px;
+    height:30px;
+}

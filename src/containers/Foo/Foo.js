@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchPlayersAsync  } from '../../actions/asyncActions';
 import { FormattedMessage } from 'react-intl';
+import styles from './Foo.css';
 
 /**
  * Foo Component
@@ -14,7 +15,6 @@ class Foo extends React.Component{
         super(props);
         this.onClickButton = this.onClickButton.bind(this);
     }
-
     /**
      * get Player list
      */
@@ -30,8 +30,9 @@ class Foo extends React.Component{
             <div>
                 <h1>Page 2 -
                     <FormattedMessage id="system.alert" defaultMessage="Alert" />
+
                 </h1>
-                <button onClick={this.onClickButton}>get player</button>
+                <button className={styles.obButton} onClick={this.onClickButton}>get player</button>
 
                 <ul style={ulStyle}>
                     {
