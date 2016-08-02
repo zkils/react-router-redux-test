@@ -74,5 +74,4 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin('libs', "libs.js")
     ],
-    postcss: [ values ]
 };

@@ -48,7 +48,7 @@ class Header extends React.Component{
                 </Button>
                 <TextBox className={styles.title} tbText={this.props.title} ></TextBox>
                 <Button label={buttonData[1].label} iconName={buttonData[1].iconName} onClick={buttonData[1].onClick} className={styles.floatElement} >
-                    <TextBox >  </TextBox>
+                    <TextBox > !! </TextBox>
                     </Button>
 
             </div>

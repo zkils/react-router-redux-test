@@ -6,7 +6,8 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --hot --host 0.0.0.0",
     "build": "webpack -p --config ./webpack.prod.config.js",
-    "stats": "webpack --profile --json > stats.json"
+    "stats": "webpack --profile --json > stats.json",
+    "doc:build": "jsdoc -c ./conf.json -t ./node_modules/ink-docstrap/template"
   },
   "author": "Obigo",
   "license": "ISC",
@@ -15,7 +16,7 @@
     "css-loader": "^0.23.1",
     "file-loader": "^0.9.0",
     "immutable": "^3.8.1",
-    "react": "^0.15.0",
+    "react": "^15.3.0",
     "react-addons-shallow-compare": "^15.2.1",
     "react-addons-update": "^15.1.0",
     "react-dom": "^0.14.7",
@@ -38,8 +39,10 @@
     "bundle-loader": "^0.5.4",
     "css": "^2.2.1",
     "html-webpack-plugin": "^2.22.0",
+    "ink-docstrap": "^1.2.1",
     "loader": "^2.1.1",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
     "webpack-md5-hash": "0.0.5"

@@ -1,8 +1,9 @@
-import React from 'react'
-import { Link,  IndexLink } from 'react-router'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import React from 'react';
+import { Link,  IndexLink } from 'react-router';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import styles from './App.css';
+import TextBox from '../../components/TextBox/TextBox';
 
 /**
  * App container
@@ -80,6 +81,7 @@ class App extends React.Component{
                     <Link to="/bar">Bar</Link>
                 </div>
                 <div style={btnsStyle}>
+                    <TextBox tbText={"Link Testzzzzz"}>  </TextBox>
                     <button onClick={() => this.props.history.push('foo')}>Go to /foo</button>
                     <br />
                     <button onClick={() => this.props.history.push('bar')}>Go to /bar</button>
