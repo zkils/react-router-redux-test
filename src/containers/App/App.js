@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link,  IndexLink } from 'react-router';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import styles from './App.css';
-import TextBox from '../../components/TextBox/TextBox';
 
 /**
  * App container
@@ -29,14 +27,14 @@ class App extends React.Component{
         this.handleBackButton = this.handleBackButton.bind(this);
         this.handleHomeButton = this.handleHomeButton.bind(this);
         this.handleSettingButton = this.handleSettingButton.bind(this);
-    }
+    };
 
     /**
      * back to previous page
      */
     handleBackButton(){
         this.props.history.goBack();
-    }
+    };
 
     /**
      * back to home
@@ -44,54 +42,34 @@ class App extends React.Component{
     handleHomeButton(){
         console.log("Home");
         this.props.history.push("/");
-    }
+    };
 
     /**
      * popup side menu
      */
     handleSettingButton(){
         console.log("Setting");
-    }
+    };
 
     /**
      * render app container
      * @returns {XML}
      */
     render(){
-        let linkStyle = {
-            position:'absolute',
-            top: '80px',
-            left: '200px',
-        }
-        let btnsStyle = {
-            position:'absolute',
-            top: '80px',
-            left: '400px',
-        }
         return (
             <div className={styles.app}>
-                <Header onClickBack={this.handleBackButton} onClickHome={this.handleHomeButton} />
-                <div style={linkStyle}>
-                    Links:
-                    {'  /  '}
-                    <IndexLink to="/">Home</IndexLink>
-                    {'  /  '}
-                    <Link to="/foo">Foo</Link>
-                    {'  /  '}
-                    <Link to="/bar">Bar</Link>
-                </div>
-                <div style={btnsStyle}>
-                    <TextBox tbText={"Link Testzzzzz"}>  </TextBox>
-                    <button onClick={() => this.props.history.push('foo')}>Go to /foo</button>
-                    <br />
-                    <button onClick={() => this.props.history.push('bar')}>Go to /bar</button>
-                </div>
-                <br />
-                <div style={{ marginTop: '1.5em' }}>{this.props.children}</div>
-                <Footer settingBtnStatus={true} onClickSetting={this.handleSettingButton} />
+                <Header
+                    onClickBack={this.handleBackButton}
+                    onClickHome={this.handleHomeButton}
+                />
+                <div>{this.props.children}</div>
+                <Footer
+                    settingBtnStatus={true}
+                    onClickSetting={this.handleSettingButton}
+                />
             </div>
         )
-    }
-}
+    };
+};
 
 export default  App;

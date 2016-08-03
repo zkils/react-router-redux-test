@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+		id=""
+		version="0.0.1"
+		height="768"
+		width="1024"
+		viewmodes="fullscreen"
+		processgroup=""
+        category=""
+        expired="false">
+    <name>Obigo-WebApp</name>
+    <description>
+        <![CDATA[ Skeleton ]]>
+    </description>
+    <icon src="icon.png" />
+    <content src="index.html" type="text/html" />
+    <appcontrolgroup>group1</appcontrolgroup>
+    <author>Obigo</author>
+    <license>Obigo</license>
+    <access origin="*" />
+    <feature name="http://www.obigo.com/api/audio" required="true"/>
+    <feature name="http://www.obigo.com/api/nativecall" required="true"><param name="version" value="1.3.0" /></feature>
+    <feature name="http://www.obigo.com/api/applicationmanager" required="true"><param name="version" value="1.5.3" /></feature>
+</widget>
