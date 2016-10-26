@@ -1,3 +1,6 @@
 [submodule "omod"]
 	path = omod
 	url = https://github.com/zkils/omod
+[submodule "b1"]
+	path = b1
+	url = https://github.com/zkils/omod
